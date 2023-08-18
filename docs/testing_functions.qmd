@@ -25,5 +25,19 @@ expect_type(mean_range(mtcars), "double")
 expect_true(mean_range(mtcars)[1] <= mean_range(mtcars)[2])
 ```
 
+```{r}
+source(here::here("src", "name_cart.R"))
+```
+
+```{r}
+name_cart(food = "enchilada", animal = "hawk")
+```
+#source from cork oak growth doc
+```{r}
+source(here::here("src", "cork_oak_growth.R"))
+
+height_t2(12, 2, 4)
+
+```
 
 
