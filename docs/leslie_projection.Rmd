@@ -43,16 +43,16 @@ Add line-by-line comments wheres prompted in the code below, explaining what eac
 # ------ WHAT HAPPENS HERE? ------ #
 # ------ comment line-by-line ---- #
 
-# The line below...
+# The line below... making a vector sequence from 0 to 8, by increments of 1
 time_yr <- seq(from = 0, to = 8, by = 1)
 
-# The line below...
+# The line below...is a storage to make a matrix, with columns being 4, and rows being 9
 proj_year <- matrix(ncol = length(fish_year0), nrow = length(time_yr))
 
-# The line below...
+# The line below... is filling up the first row from the info of the initial fish year population
 proj_year[1, ] <- fish_year0
 
-# The for loop below...
+# The for loop below... it fills the matrix up all the way, with it starting at the second location vector in time and uses the equation to fill up the matrix for the other years
 for (i in 2:length(time_yr)) {
   proj_year[i,] <- fish_leslie %*% proj_year[i-1,]
 }
@@ -71,3 +71,23 @@ ggplot(data = proj_df, aes(x = time_yr, y = stage_population)) +
 ```
 
 Test different combinations of survival / reproduction and starting population structures to see what happens! 
+
+
+```{r}
+#another example
+demo <- data.frame(year = c(1995, 2005, 2015),
+                   cats = c(2, 5, 7), 
+                   dogs = c(1, 4, 6))
+
+
+demo
+# pivotthis
+demo_l <- demo %>% pivot_longer(cols = c(cats, dogs), names_to = "animal", values_to = "count")
+demo_l
+```
+
+
+
+
+
+
